@@ -13,6 +13,12 @@ try {
             privateKey: FB_PRIVATE_KEY,
         }),
     });
+
 } catch (err: any) {
+    // In development the app may try to initialize firebase more than once,
+    // which will cause an error. 
     if (!/already exists/u.test(err.message)) { console.error("Firebase Admin error: ", err.stack) }
 }
+
+export const adminDB = getFirestore();
+export const adminAuth = getAuth();
