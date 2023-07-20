@@ -20,5 +20,7 @@ try {
     if (!/already exists/u.test(err.message)) { console.error("Firebase Admin error: ", err.stack) }
 }
 
+// These can only be used on the server side in Svelte.
+// For ex. in server.ts file or +page.server.ts file.
 export const adminDB = getFirestore();
 export const adminAuth = getAuth();
